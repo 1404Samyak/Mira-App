@@ -130,7 +130,7 @@ if input_type == "Video URL":
     # Button to perform the selected operation
     if st.button("Process"):
         st.success("Processing your request...")
-        plain_transcript = ""
+        plain_transcript = "......."
         try:
             transcript = YouTubeTranscriptApi.get_transcript(video_id)
             plain_transcript = " ".join([entry['text'] for entry in transcript])
