@@ -20,7 +20,7 @@ except Exception as e:
 # Load environment variables from .env file
 load_dotenv()
 
-api_key = os.getenv("MIRA_KEY")
+api_key = os.getenv("APP_KEY")
 
 # Initialize the client
 client = MiraClient(config={"API_KEY": api_key})
