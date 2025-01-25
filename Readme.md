@@ -81,11 +81,4 @@ Feel free to contribute to this project! You can:
     Open an issue if you encounter a bug or have a feature request.
     Submit a pull request with your improvements or fixes.
 
-License
 
-This project is open source and available under the MIT License.
-
-This should be a good starting point for your project’s README on GitHub! Let me know if you need any adjustments.
-
-
-ChatGPT can make mistak
