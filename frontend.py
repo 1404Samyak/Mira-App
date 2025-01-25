@@ -114,7 +114,7 @@ st.subheader("Provide the required input and choose the operation to perform.")
 input_type = st.selectbox("Select Input Type:", ["Video URL", "PDF File"])
 
 # Dropdown for operation
-operation = st.selectbox("Select Operation:", ["Resolve Doubt", "Generate Summary", "Create Lecture Framework"])
+operation = st.selectbox("Select Operation:", ["Resolve Doubt", "Generate Summary", "Create Lecture plan"])
 
 # Input logic for Video URL
 if input_type == "Video URL":
@@ -124,7 +124,7 @@ if input_type == "Video URL":
     if operation == "Resolve Doubt":
         doubt = st.text_input("Enter Your Doubt:")
     
-    elif operation == "Create Lecture Framework":
+    elif operation == "Create Lecture plan":
         lecture_duration = st.number_input("Enter the desired lecture duration (in minutes):", min_value=0, step=10)
     
     # Button to perform the selected operation
@@ -149,10 +149,10 @@ if input_type == "Video URL":
             st.subheader("Summary")
             st.write(response['result'])
         
-        elif operation == "Create Lecture Framework":
+        elif operation == "Create Lecture plan":
             input_dict = {"transcript": plain_transcript, "duration": lecture_duration}
             response = client.flow.test(flow_framework, input_dict)
-            st.subheader("Lecture Framework")
+            st.subheader("Lecture plan")
             st.write(response['result'])
 
 # Input logic for PDF File
@@ -170,7 +170,7 @@ elif input_type == "PDF File":
             if operation == "Resolve Doubt":
                 doubt = st.text_input("Enter Your Doubt:")
             
-            elif operation == "Create Lecture Framework":
+            elif operation == "Create Lecture plan":
                 lecture_duration = st.number_input("Enter the desired lecture duration (in minutes):", min_value=0, step=10)
             
             # Button to perform the selected operation
@@ -187,10 +187,10 @@ elif input_type == "PDF File":
                     st.subheader("Summary")
                     st.write(response['result'])
                 
-                elif operation == "Create Lecture Framework":
+                elif operation == "Create Lecture plan":
                     input_dict = {"transcript": pdf_text, "duration": lecture_duration}
                     response = client.flow.test(flow_framework, input_dict)
-                    st.subheader("Lecture Framework")
+                    st.subheader("Lecture plan")
                     st.write(response['result'])
         
         except Exception as e:
