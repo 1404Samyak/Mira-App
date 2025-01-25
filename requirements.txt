@@ -8,3 +8,4 @@ beautifulsoup4
 requests
 selenium
 youtube-transcript-api
+PyPDF2

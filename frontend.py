@@ -14,6 +14,7 @@ client = MiraClient(config={"API_KEY": api_key})
 
 flow = Flow(source="flow.yaml")
 flow1 = Flow(source="flow1.yaml")
+flow2=Flow(source="flow2.yaml")
 
 # Apply custom CSS for styling
 st.markdown("""
@@ -77,28 +78,28 @@ if input_type == "Video URL":
         
         st.info(f"Video URL: {video_url}\nDoubt: {doubt}")
 
-# elif input_type == "PDF File":
-#     pdf_file = st.file_uploader("Upload a PDF File:", type=["pdf"])
-#     if pdf_file:
-#         # Display file name
-#         st.write(f"Uploaded file: {pdf_file.name}")
-#         # Extract text from PDF
-#         try:
-#             import PyPDF2
-#             pdf_reader = PyPDF2.PdfReader(pdf_file)
-#             pdf_text = ""
-#             for page in pdf_reader.pages:
-#                 pdf_text += page.extract_text()
+elif input_type == "PDF File":
+    pdf_file = st.file_uploader("Upload a PDF File:", type=["pdf"])
+    if pdf_file:
+        # Display file name
+        st.write(f"Uploaded file: {pdf_file.name}")
+        # Extract text from PDF
+        try:
+            import PyPDF2
+            pdf_reader = PyPDF2.PdfReader(pdf_file)
+            pdf_text = ""
+            for page in pdf_reader.pages:
+                pdf_text += page.extract_text()
             
-#             st.text_area("Extracted Text from PDF:", pdf_text, height=300)
+            # st.text_area("Extracted Text from PDF:", pdf_text, height=300)
             
-#             doubt = st.text_input("Enter Your Doubt:")
-#             if st.button("Resolve Doubt"):
-#                 input_dict = {"doubt": doubt, "document_text": pdf_text}
-#                 response = client.flow.test(flow, input_dict)
+            doubt = st.text_input("Enter Your Doubt:")
+            if st.button("Resolve Doubt"):
+                input_dict = {"doubt": doubt, "document_text": pdf_text}
+                response = client.flow.test(flow2, input_dict)
                 
-#                 st.subheader("Explanation of your doubt")
-#                 st.write(response['result'])
+                st.subheader("Explanation of your doubt")
+                st.write(response['result'])
         
-#         except Exception as e:
-#             st.error(f"An error occurred while processing the PDF: {e}")
+        except Exception as e:
+            st.error(f"An error occurred while processing the PDF: {e}")

@@ -26,6 +26,6 @@ prompt: |
   please summarize the given video trascript : {transcript} in a simple , elegant and concise manner. Try not to leave any topics that are covered in the transcipt.If {transcript} is empty then state that no transcripts available for the video.
 
 readme: |
-  This flow can summarize the given video transcipt
+  This flow can summarize the given video transcript
 
   Example: Input1: Love, Input2: Eminem
